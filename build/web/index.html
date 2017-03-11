@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Public Chat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="_css/bootstrap.css">
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="_css/styles.css">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.11.1/validate.min.js"></script>
+        <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        
+        <!--<script type="text/javascript" src="_js/controllers/chatController.js"></script>-->
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <h4 class="modal-title">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline">
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8" id="inputUsername">
+                                        <div class="form-group row">
+                                            <input type="text" class="form-control" id="txtUsername" placeholder="Enter your name">
+                                            <button type="button" id="btnSignIn" class="btn btn-primary" >Sign in</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <h1>Welcome to IJSE Public Chat Application</h1>
+        <div id="chat-container" class="container">
+
+
+            <div id="div-row" class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <ul class="list-group" id="list-group-container">
+<!--                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                pinna
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Japana
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Maliya
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Sura-Boy
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Paththa
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Shoota
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                Dalla
+                            </li>-->
+                    </ul>
+                   </div><!-- /.row -->
+                </div>
+                <div class="col-md-8" id="iframeContainer">
+                    <!--<iframe id="ifrm1" style="height: 400px; width: 100%" src="hashMap.jsp"></iframe>-->
+            
+                </div>
+            </div>
+
+        </div>
+        <form id="frmClient" class="container">
+            <div  class="row">
+                <div class="col-md-3">
+                    <div class="row">
+<!--                        <div class="input-group" id="search-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Search for...">
+                        </div> /input-group -->
+                   </div><!-- /.row -->
+                </div>
+                <div class="col-md-9">
+                    <div class="input-group">
+                        <span title="Pick emoji" id="spn-emoji" class="input-group-addon"><i class="em em-grinning"></i></span>
+                        <div id="txtMessage" contenteditable="true">                        
+                        </div>
+                        <span title="Send message" id="spn-send" class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                    <div title="Open camera" id="div-camera"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></div>
+                </div>
+            </div>
+        </form>
+        <div id="div-camera-container">
+            <video id="video" autoplay></video> 
+            <button id="btnSnap" type="button" class="btn btn-primary">Snap & Send</button>
+            <div id="file-uploading-loader">Uploading...</div>
+        </div>
+
+        <div id="div-emoji-container">
+            <div>
+                <span class="emoji"><i class="em em-angry"></i></span>
+                <span class="emoji"><i class="em em-anguished"></i></span>
+                <span class="emoji"><i class="em em-astonished"></i></span>
+                <span class="emoji"><i class="em em-blush"></i></span>
+                <span class="emoji"><i class="em em-bowtie"></i></span>
+            </div>
+            <div>
+                <span class="emoji"><i class="em em-confused"></i></span>
+                <span class="emoji"><i class="em em-confounded"></i></span>
+                <span class="emoji"><i class="em em-cold_sweat"></i></span>
+                <span class="emoji"><i class="em em-cry"></i></span>
+                <span class="emoji"><i class="em em-disappointed"></i></span>
+            </div>
+            <div>
+                <span class="emoji"><i class="em em-dizzy_face"></i></span>
+                <span class="emoji"><i class="em em-disappointed_relieved"></i></span>
+                <span class="emoji"><i class="em em-expressionless"></i></span>
+                <span class="emoji"><i class="em em-fearful"></i></span>
+                <span class="emoji"><i class="em em-flushed"></i></span>
+            </div>
+            <div>
+                <span class="emoji"><i class="em em-frowning"></i></span>
+                <span class="emoji"><i class="em em-grimacing"></i></span>
+                <span class="emoji"><i class="em em-grinning"></i></span>
+                <span class="emoji"><i class="em em-grin"></i></span>
+                <span class="emoji"><i class="em em-heart_eyes"></i></span>
+            </div>                
+        </div>        
+        <!--<script type="text/javascript" src="_js/jquery.js"></script>-->
+        <script type="text/javascript" src="_js/controllers/chatController.js"></script>
+    </body>
+</html>
